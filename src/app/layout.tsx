@@ -46,6 +46,7 @@ export default function RootLayout({
             </TooltipProvider>
           </ThemeProvider>
         </QueryProvider>
+
       </body>
     </html>
   );
