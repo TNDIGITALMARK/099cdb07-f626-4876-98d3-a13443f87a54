@@ -1,39 +1,53 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Costa Rican Surf Shop Design System
+Colors inspired by Costa Rican beaches, ocean, and tropical landscape
 All colors MUST be HSL.
 */
 
 :root {
+  /* Core Background Colors */
   --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  --foreground: 210 40% 15%;
 
+  /* Card and Surface Colors */
   --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 15%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 15%;
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  /* Costa Rican Surf Theme Colors */
+  --primary: 220 100% 55%;          /* Ocean Blue #1A85FF */
+  --primary-foreground: 0 0% 100%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 195 85% 65%;         /* Tropical Blue #56CCF2 */
+  --secondary-foreground: 210 40% 15%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 147 45% 42%;            /* Costa Rica Green #27AE60 */
+  --accent-foreground: 0 0% 100%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  /* Supporting Surf Colors */
+  --surf-orange: 25 85% 62%;        /* Sunset Orange #F2994A */
+  --surf-yellow: 45 85% 62%;        /* Sandy Beige #F2C94C */
+  --surf-navy: 210 60% 25%;         /* Deep Ocean Navy */
+  
+  /* Font families */
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
 
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
 
-  --radius: 0.5rem;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 220 100% 55%;
+
+  --radius: 0.75rem;
 
   --sidebar-background: 0 0% 98%;
   --sidebar-foreground: 240 5.3% 26.1%;
@@ -125,6 +139,11 @@ All colors MUST be HSL.
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-ring: hsl(var(--sidebar-ring));
   
+  /* Custom Surf Colors */
+  --color-surf-orange: hsl(var(--surf-orange));
+  --color-surf-yellow: hsl(var(--surf-yellow));
+  --color-surf-navy: hsl(var(--surf-navy));
+
   /* Border Radius */
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
@@ -160,4 +179,106 @@ All colors MUST be HSL.
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: var(--font-roboto);
+}
+
+/* Typography System */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
+
+.heading-display {
+  font-family: var(--font-montserrat);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+.heading-hero {
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+}
+
+/* Custom Surf Theme Classes */
+.surf-gradient {
+  background: linear-gradient(135deg, 
+    hsl(var(--primary)) 0%, 
+    hsl(var(--secondary)) 50%, 
+    hsl(var(--accent)) 100%);
+}
+
+.surf-text-gradient {
+  background: linear-gradient(135deg, 
+    hsl(var(--primary)), 
+    hsl(var(--accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.beach-shadow {
+  box-shadow: 0 10px 25px rgba(26, 133, 255, 0.15);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(26, 133, 255, 0.2);
+}
+
+/* Custom utility classes */
+.bg-surf-orange {
+  background-color: hsl(var(--surf-orange));
+}
+
+.text-surf-orange {
+  color: hsl(var(--surf-orange));
+}
+
+.bg-surf-yellow {
+  background-color: hsl(var(--surf-yellow));
+}
+
+.text-surf-yellow {
+  color: hsl(var(--surf-yellow));
+}
+
+.bg-surf-navy {
+  background-color: hsl(var(--surf-navy));
+}
+
+.text-surf-navy {
+  color: hsl(var(--surf-navy));
+}
+
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
