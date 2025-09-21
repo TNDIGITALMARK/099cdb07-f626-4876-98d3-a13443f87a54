@@ -1,7 +1,7 @@
 /**
  * Phoenix Tracking Asset: phoenix-tracking.css
- * Build-Time Generated: 2025-09-21T04:54:20.412Z
- * Content Hash: 86ad220b
+ * Build-Time Generated: 2025-09-21T15:01:27.511Z
+ * Content Hash: 5fcbaacf
  * 
  * This asset is managed by Phoenix BuildTimeTrackingManager.
  * DO NOT EDIT MANUALLY - changes will be overwritten.
@@ -11,7 +11,7 @@
  * Phoenix Tracking Styles - Build-Time Edition
  * Generated for production builds - survives Next.js compilation
  * 
- * Generated at: 2025-09-21T04:54:20.409Z
+ * Generated at: 2025-09-21T15:01:27.508Z
  * Animations: enabled
  * HUD: enabled
  */
@@ -36,15 +36,39 @@ body[data-phoenix-selection-active="true"] [data-phoenix-id] {
   transition: all 0.2s ease !important;
 }
 
+/* NEVER interfere with images inside tracked elements */
+[data-phoenix-id] img,
+[data-phoenix-id] picture,
+[data-phoenix-id] video,
+[data-phoenix-id] canvas,
+[data-phoenix-id] svg {
+  position: static !important;
+  z-index: auto !important;
+  outline: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: initial !important;
+}
+
 /* Hover highlighting - ONLY when actively selecting (like old system) */
 body[data-phoenix-selection-active="true"]:not([data-phoenix-disabled]) [data-phoenix-id]:hover {
   outline: 2px solid #3b82f6 !important;
   outline-offset: 2px !important;
   z-index: 9999 !important;
   
-  background-color: rgba(59, 130, 246, 0.1) !important;
   box-shadow: 0 0 12px rgba(59, 130, 246, 0.3) !important;
   
+}
+
+/* NEVER override background images on hover - use outline only */
+body[data-phoenix-selection-active="true"]:not([data-phoenix-disabled]) [data-phoenix-id]:hover {
+  background-image: inherit !important;
+  background-size: inherit !important;
+  background-position: inherit !important;
+  background-repeat: inherit !important;
+  background-attachment: inherit !important;
 }
 
 /* Disable all tracking visual effects when disabled */
@@ -223,7 +247,7 @@ body[data-phoenix-selection-active="true"]:not([data-phoenix-disabled]) [data-ph
 
 /* ===== SELECTION OVERLAY STYLES ===== */
 
-/* Full page overlay when selection is active */
+/* Subtle selection mode indicator - MINIMAL overlay to avoid covering content */
 body[data-phoenix-selection-active="true"]::before {
   content: "";
   position: fixed;
@@ -231,8 +255,8 @@ body[data-phoenix-selection-active="true"]::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.02);
-  z-index: 9998;
+  background: transparent; /* NO overlay background - was covering content! */
+  z-index: -1; /* Behind content, not covering it */
   pointer-events: none;
 }
 
