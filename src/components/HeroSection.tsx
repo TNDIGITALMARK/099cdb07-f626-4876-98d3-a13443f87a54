@@ -62,7 +62,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <Link href={primaryButtonHref}>
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold beach-shadow group"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold beach-shadow group"
                 aria-describedby="hero-description"
               >
                 {primaryButtonText}
@@ -73,7 +73,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <Button 
               variant="outline" 
               size="lg"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm px-8 py-4 text-lg font-semibold group"
+              className="bg-white/20 border-white/40 text-white hover:bg-white/30 backdrop-blur-sm px-8 py-4 text-lg font-semibold group shadow-lg"
               aria-label="Play introductory surf video"
             >
               <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" aria-hidden="true" />
