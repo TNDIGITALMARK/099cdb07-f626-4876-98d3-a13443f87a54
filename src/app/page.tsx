@@ -33,16 +33,20 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded z-50">
+        Skip to main content
+      </a>
       <Navigation />
       
       {/* Hero Section */}
-      <HeroSection />
+      <main id="main-content">
+        <HeroSection />
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-labelledby="features-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="features-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Why Choose Surf Adventures?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -52,8 +56,8 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Award className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
+                <Award className="w-8 h-8 text-primary" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Expert Instructors</h3>
               <p className="text-gray-600">
@@ -62,8 +66,8 @@ export default function HomePage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Users className="w-8 h-8 text-accent" />
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
+                <Users className="w-8 h-8 text-accent" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">5000+ Students</h3>
               <p className="text-gray-600">
@@ -72,8 +76,8 @@ export default function HomePage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-surf-orange/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Globe className="w-8 h-8" style={{ color: 'hsl(25, 85%, 62%)' }} />
+              <div className="w-16 h-16 bg-surf-orange/10 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
+                <Globe className="w-8 h-8" style={{ color: 'hsl(25, 85%, 62%)' }} aria-hidden="true" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Local Knowledge</h3>
               <p className="text-gray-600">
@@ -85,11 +89,11 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="featured-products-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 id="featured-products-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 Featured Equipment
               </h2>
               <p className="text-lg text-gray-600">
@@ -97,9 +101,9 @@ export default function HomePage() {
               </p>
             </div>
             <Link href="/shop">
-              <Button variant="outline" className="hidden sm:flex items-center">
+              <Button variant="outline" className="hidden sm:flex items-center" aria-label="View all surf equipment and products">
                 View All Products
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
               </Button>
             </Link>
           </div>
@@ -124,9 +128,9 @@ export default function HomePage() {
 
           <div className="text-center mt-8 sm:hidden">
             <Link href="/shop">
-              <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full" aria-label="View all surf equipment and products">
                 View All Products
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
               </Button>
             </Link>
           </div>
@@ -134,11 +138,11 @@ export default function HomePage() {
       </section>
 
       {/* Surf Lessons Preview */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" aria-labelledby="surf-lessons-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 id="surf-lessons-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Learn to Surf with the Experts
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -167,9 +171,9 @@ export default function HomePage() {
               </div>
 
               <Link href="/lessons">
-                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                <Button size="lg" className="bg-primary hover:bg-primary/90" aria-describedby="surf-lessons-heading">
                   Book Your Lesson
-                  <ArrowRight className="w-5 h-5 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
                 </Button>
               </Link>
             </div>
@@ -178,24 +182,24 @@ export default function HomePage() {
               <div className="space-y-4">
                 <img
                   src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=400&auto=format&fit=crop"
-                  alt="Surf lesson"
+                  alt="Surf instructor teaching a student proper surfing stance on a beginner-friendly wave"
                   className="rounded-lg aspect-square object-cover"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=400&auto=format&fit=crop"
-                  alt="Group lesson"
+                  alt="Small group surf lesson with four students learning together on the beach"
                   className="rounded-lg aspect-[4/3] object-cover"
                 />
               </div>
               <div className="space-y-4 mt-8">
                 <img
                   src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400&auto=format&fit=crop"
-                  alt="Advanced lesson"
+                  alt="Advanced surfer practicing technique with instructor guidance in deeper water"
                   className="rounded-lg aspect-[4/3] object-cover"
                 />
                 <img
                   src="https://images.unsplash.com/photo-1566479179817-d1b6c17deea4?q=80&w=400&auto=format&fit=crop"
-                  alt="Happy students"
+                  alt="Happy surf students celebrating after successfully catching their first waves"
                   className="rounded-lg aspect-square object-cover"
                 />
               </div>
@@ -205,10 +209,10 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20">
+      <section className="py-20" aria-labelledby="testimonials-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 id="testimonials-heading" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               What Our Customers Say
             </h2>
             <p className="text-lg text-gray-600">
@@ -218,15 +222,15 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-                <div className="flex items-center mb-4">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-lg border border-gray-100" role="article" aria-labelledby={`testimonial-author-${index}`}>
+                <div className="flex items-center mb-4" role="group" aria-label={`${testimonial.rating} star rating`}>
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <div key={i} className="w-5 h-5 text-surf-yellow">★</div>
+                    <div key={i} className="w-5 h-5 text-surf-yellow" aria-hidden="true">★</div>
                   ))}
                 </div>
                 <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
                 <div>
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                  <p id={`testimonial-author-${index}`} className="font-semibold text-gray-900">{testimonial.name}</p>
                   <p className="text-sm text-gray-600">{testimonial.location}</p>
                 </div>
               </div>
@@ -234,6 +238,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

@@ -6,6 +6,8 @@ import { QueryProvider } from "@/components/query-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { PhoenixTracker } from "@/components/PhoenixTracker";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +20,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Surf Adventures Costa Rica - Premium Surf Lessons & Equipment",
+  description: "Learn to surf with Costa Rica's most trusted surf school. Premium equipment, expert instructors, and beginner-friendly waves in Tamarindo.",
 };
 
 export default function RootLayout({
@@ -29,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="stylesheet" href="/phoenix-tracking.css" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -46,7 +51,8 @@ export default function RootLayout({
             </TooltipProvider>
           </ThemeProvider>
         </QueryProvider>
-
+        <Script src="/phoenix-tracking.js" strategy="afterInteractive" />
+        <PhoenixTracker />
       </body>
     </html>
   );

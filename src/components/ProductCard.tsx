@@ -49,13 +49,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <Card className={`group cursor-pointer card-hover overflow-hidden bg-white ${className}`}>
+    <Card className={`group cursor-pointer card-hover overflow-hidden bg-white ${className}`} role="article" aria-labelledby={`product-name-${id}`}>
       <div className="relative overflow-hidden">
         {/* Product Image */}
         <div className="aspect-square bg-gray-50">
           <Image
             src={image}
-            alt={name}
+            alt={`${name} - ${category} surfing equipment`}
             width={400}
             height={400}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -80,8 +80,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
           size="sm"
           className="absolute top-3 right-3 w-8 h-8 p-0 bg-white/80 hover:bg-white/90 opacity-0 group-hover:opacity-100 transition-opacity"
           onClick={handleToggleWishlist}
+          aria-label={`Add ${name} to wishlist`}
         >
-          <Heart className="w-4 h-4 text-gray-600 hover:text-red-500" />
+          <Heart className="w-4 h-4 text-gray-600 hover:text-red-500" aria-hidden="true" />
+          <span className="sr-only">Add to wishlist</span>
         </Button>
 
         {/* Add to Cart Overlay */}
@@ -89,8 +91,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
           <Button
             onClick={handleAddToCart}
             className="bg-primary hover:bg-primary/90 text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-200"
+            aria-label={`Add ${name} to cart for ${formatPrice(price)}`}
           >
-            <ShoppingCart className="w-4 h-4 mr-2" />
+            <ShoppingCart className="w-4 h-4 mr-2" aria-hidden="true" />
             Add to Cart
           </Button>
         </div>
@@ -103,14 +106,14 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </p>
 
         {/* Product Name */}
-        <h3 className="font-montserrat font-semibold text-gray-900 mb-2 line-clamp-2">
+        <h3 id={`product-name-${id}`} className="font-montserrat font-semibold text-gray-900 mb-2 line-clamp-2">
           {name}
         </h3>
 
         {/* Rating */}
         {rating > 0 && (
-          <div className="flex items-center mb-2">
-            <div className="flex items-center">
+          <div className="flex items-center mb-2" role="group" aria-label={`Rating: ${rating.toFixed(1)} out of 5 stars`}>
+            <div className="flex items-center" aria-hidden="true">
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
@@ -119,6 +122,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                       ? 'text-surf-yellow fill-current'
                       : 'text-gray-300'
                   }`}
+                  aria-hidden="true"
                 />
               ))}
             </div>
