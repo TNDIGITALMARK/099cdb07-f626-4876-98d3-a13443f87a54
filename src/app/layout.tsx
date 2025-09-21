@@ -49,10 +49,11 @@ export default function RootLayout({
               <Toaster />
               <Sonner />
             </TooltipProvider>
+            <Script src="/phoenix-tracking.js" strategy="afterInteractive" />
+            <PhoenixTracker />
           </ThemeProvider>
-        </QueryProvider>        <Script src="/phoenix-tracking.js" strategy="afterInteractive" />
-        <PhoenixTracker />
-</body>
+        </QueryProvider>
+      </body>
     </html>
   );
 }
